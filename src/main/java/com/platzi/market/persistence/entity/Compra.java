@@ -34,5 +34,5 @@ public class Compra {
 
     @OneToMany(mappedBy = "producto")
     private List<ComprasProducto> productos;
-    
+
 }
