@@ -1,44 +1,41 @@
-package com.platzi.market.domain.service;
+package com.platzi.market.web.controller;
 
 import com.platzi.market.domain.Product;
-import com.platzi.market.domain.repository.ProductRepository;
+import com.platzi.market.domain.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.Optional;
 
-@Service
-public class ProductService {
+@RestController
+@RequestMapping("/products")
+public class ProductController {
 
     @Autowired
-    private ProductRepository productRepository;
+    private ProductService productService;
 
     public List<Product> getAll() {
-        return productRepository.getAll();
+        return productService.getAll();
     }
 
     public Optional<Product> getProduct(Long productId) {
-        return productRepository.getProduct((productId));
+        return productService.getProduct(productId);
     }
 
     public Optional<List<Product>> getByCategory(Long categoryId) {
-        return productRepository.getByCategory(categoryId);
-    }
-
-    // TODO: Implementar luego
-    public Optional<List<Product>> getScarseProduct(int quantity) {
-        return null;
+        return productService.getByCategory(categoryId);
     }
 
     public Product save(Product product) {
-        return productRepository.save(product);
+        return productService.save(product);
     }
 
     public boolean delete(Long productId) {
         try {
-            productRepository.delete(productId);
+            productService.delete(productId);
             return true;
         } catch (EmptyResultDataAccessException e) {
             return false;
