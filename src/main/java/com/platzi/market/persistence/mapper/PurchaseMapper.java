@@ -1,16 +1,12 @@
 package com.platzi.market.persistence.mapper;
 
 import com.platzi.market.domain.Purchase;
-import com.platzi.market.persistence.entity.Cliente;
-import com.platzi.market.persistence.entity.Compra;
-import com.platzi.market.persistence.entity.ComprasProducto;
+import com.platzi.market.persistence.entity.PurchaseEntity;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 
-import javax.persistence.*;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Mapper(componentModel = "spring", uses = {PurchaseItemMapper.class})
@@ -25,11 +21,11 @@ public interface PurchaseMapper {
         @Mapping(source = "estado", target = "state"),
         @Mapping(source = "productos", target = "items")
     })
-    Purchase toPurchase(Compra compra);
-    List<Purchase> toPurchases(List<Compra> compras);
+    Purchase toPurchase(PurchaseEntity purchaseEntity);
+    List<Purchase> toPurchases(List<PurchaseEntity> purchaseEntities);
 
     @InheritInverseConfiguration
     @Mapping(target = "cliente", ignore = true)
-    Compra toCompra(Purchase purchase);
+    PurchaseEntity toCompra(Purchase purchase);
 
 }

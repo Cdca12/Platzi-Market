@@ -8,7 +8,7 @@ import java.util.List;
 @Entity
 @Table(name = "clientes")
 @Data
-public class Cliente {
+public class ClientEntity {
 
     @Id
     private String id;
@@ -25,5 +25,5 @@ public class Cliente {
     private String correoElectronico;
 
     @OneToMany(mappedBy = "cliente")
-    private List<Compra> compras;
+    private List<PurchaseEntity> purchaseEntities;
 }

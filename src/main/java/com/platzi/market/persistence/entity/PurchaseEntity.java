@@ -9,7 +9,7 @@ import java.util.List;
 @Entity
 @Table(name = "compras")
 @Data
-public class Compra {
+public class PurchaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,9 +30,9 @@ public class Compra {
 
     @ManyToOne
     @JoinColumn(name = "id_cliente", insertable = false, updatable = false)
-    private Cliente cliente;
+    private ClientEntity clientEntity;
 
     @OneToMany(mappedBy = "compra", cascade = {CascadeType.ALL})
-    private List<ComprasProducto> productos;
+    private List<PurchaseItemEntity> productos;
 
 }

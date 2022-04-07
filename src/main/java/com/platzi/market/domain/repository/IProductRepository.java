@@ -5,7 +5,7 @@ import com.platzi.market.domain.Product;
 import java.util.List;
 import java.util.Optional;
 
-public interface ProductRepository {
+public interface IProductRepository {
     List<Product> getAll();
     Optional<List<Product>> getByCategory(Long categoryId);
     Optional<List<Product>> getScarseProduct(int quantity);

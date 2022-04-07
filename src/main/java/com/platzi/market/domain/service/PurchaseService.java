@@ -1,7 +1,7 @@
 package com.platzi.market.domain.service;
 
 import com.platzi.market.domain.Purchase;
-import com.platzi.market.domain.repository.PurchaseRepository;
+import com.platzi.market.domain.repository.IPurchaseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,18 +12,18 @@ import java.util.Optional;
 public class PurchaseService {
 
     @Autowired
-    private PurchaseRepository purchaseRepository;
+    private IPurchaseRepository IPurchaseRepository;
 
     public List<Purchase> getAll() {
-        return purchaseRepository.getAll();
+        return IPurchaseRepository.getAll();
     }
 
     public Optional<List<Purchase>> getByClient(String clientId) {
-        return purchaseRepository.getByClient(clientId);
+        return IPurchaseRepository.getByClient(clientId);
     }
 
     public Purchase save(Purchase purchase) {
-        return purchaseRepository.save(purchase);
+        return IPurchaseRepository.save(purchase);
     }
 
 }

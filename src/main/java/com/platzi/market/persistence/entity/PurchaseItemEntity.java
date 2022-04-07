@@ -8,10 +8,10 @@ import java.math.BigDecimal;
 @Entity
 @Table(name = "compras_productos")
 @Data
-public class ComprasProducto {
+public class PurchaseItemEntity {
 
     @EmbeddedId
-    private ComprasProductoPK id;
+    private PurchaseItemEntityPK id;
 
     private Integer cantidad;
     private BigDecimal total;
@@ -20,11 +20,11 @@ public class ComprasProducto {
     @ManyToOne
     @MapsId("idCompra")
     @JoinColumn(name = "id_compra", insertable = false, updatable = false)
-    private Compra compra;
+    private PurchaseEntity purchaseEntity;
 
     @ManyToOne
     @JoinColumn(name = "id_producto", insertable = false, updatable = false)
-    private Producto producto;
+    private ProductEntity productEntity;
 
 
 }

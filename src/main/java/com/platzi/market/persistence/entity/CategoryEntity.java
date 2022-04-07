@@ -8,7 +8,7 @@ import java.util.List;
 @Entity
 @Table(name = "categorias")
 @Data
-public class Categoria {
+public class CategoryEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,7 +20,7 @@ public class Categoria {
     private Boolean estado;
 
     @OneToMany(mappedBy = "categoria")
-    private List<Producto> productos;
+    private List<ProductEntity> productEntities;
 
 
 
