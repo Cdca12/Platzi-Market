@@ -32,7 +32,7 @@ public class PurchaseEntity {
     @JoinColumn(name = "id_cliente", insertable = false, updatable = false)
     private ClientEntity clientEntity;
 
-    @OneToMany(mappedBy = "compra", cascade = {CascadeType.ALL})
-    private List<PurchaseItemEntity> productos;
+    @OneToMany(mappedBy = "purchaseEntity", cascade = {CascadeType.ALL})
+    private List<PurchaseItemEntity> purchaseItemEntities;
 
 }

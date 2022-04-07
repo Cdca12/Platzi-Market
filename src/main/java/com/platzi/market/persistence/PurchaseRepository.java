@@ -35,8 +35,8 @@ public class PurchaseRepository implements IPurchaseRepository {
 
     @Override
     public Purchase save(Purchase purchase) {
-        PurchaseEntity purchaseEntity = purchaseMapper.toCompra(purchase);
-        purchaseEntity.getProductos().forEach(producto -> producto.setPurchaseEntity(purchaseEntity));
+        PurchaseEntity purchaseEntity = purchaseMapper.toPurchaseEntity(purchase);
+        purchaseEntity.getPurchaseItemEntities().forEach(producto -> producto.setPurchaseEntity(purchaseEntity));
         return purchaseMapper.toPurchase(purchaseCrudRepository.save(purchaseEntity));
     }
 }

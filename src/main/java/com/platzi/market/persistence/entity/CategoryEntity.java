@@ -19,7 +19,7 @@ public class CategoryEntity {
 
     private Boolean estado;
 
-    @OneToMany(mappedBy = "categoria")
+    @OneToMany(mappedBy = "categoryEntity")
     private List<ProductEntity> productEntities;
 
 

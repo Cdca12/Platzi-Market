@@ -20,12 +20,12 @@ public interface ProductMapper {
             @Mapping(source = "precioVenta", target = "price"),
             @Mapping(source = "cantidadStock", target = "stock"),
             @Mapping(source = "estado", target = "active"),
-            @Mapping(source = "getCategoryEntity", target = "category")
+            @Mapping(source = "categoryEntity", target = "category")
     })
     Product toProduct(ProductEntity productEntity);
     List<Product> toProducts(List<ProductEntity> productEntities);
 
     @InheritInverseConfiguration
     @Mapping(target = "codigoBarras", ignore = true)
-    ProductEntity toProducto(Product product);
+    ProductEntity toProductEntity(Product product);
 }

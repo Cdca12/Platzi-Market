@@ -19,13 +19,13 @@ public interface PurchaseMapper {
         @Mapping(source = "medioPago", target = "paymentMethod"),
         @Mapping(source = "comentario", target = "comment"),
         @Mapping(source = "estado", target = "state"),
-        @Mapping(source = "productos", target = "items")
+        @Mapping(source = "purchaseItemEntities", target = "items")
     })
     Purchase toPurchase(PurchaseEntity purchaseEntity);
     List<Purchase> toPurchases(List<PurchaseEntity> purchaseEntities);
 
     @InheritInverseConfiguration
-    @Mapping(target = "cliente", ignore = true)
-    PurchaseEntity toCompra(Purchase purchase);
+    @Mapping(target = "clientEntity", ignore = true)
+    PurchaseEntity toPurchaseEntity(Purchase purchase);
 
 }
